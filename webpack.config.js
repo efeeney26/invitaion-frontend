@@ -88,9 +88,9 @@ module.exports = {
     clean: true
   },
   devServer: {
-    port: 3000,
+    port: 3001,
     hot: true,
-    open: ['?id=6224d9e3fceff648943e9f3f'],
+    open: true,
     proxy: [
       {
         context: ['/api'],

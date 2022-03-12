@@ -4,18 +4,15 @@ import React, {
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import AccordionSummary from '@mui/material/AccordionSummary';
 import CircularProgress from '@mui/material/CircularProgress';
+import Collapse from '@mui/material/Collapse';
 
-import { palette } from '../../assets';
-import {
-  AccordionDetails, ImageStyled, Accordion, Button,
-} from './Main.style';
+import { Invitation, Video } from './components';
 import apiClient from '../../services';
 import { IGuest } from '../../types';
 
 export const Main: FC = () => {
-  const [expanded, setExpanded] = useState('invitation');
+  const [collapsed, setCollapsed] = useState(true);
 
   const [isLoading, setLoading] = useState(false);
   const [guest, setGuest] = useState<IGuest | null>(null);
@@ -60,7 +57,7 @@ export const Main: FC = () => {
     if (guestId) {
       fetchGuest(guestId);
     }
-  }, [fetchGuest, urlParams]);
+  }, [fetchGuest, urlParams, successMessage]);
 
   const handleAccept = useCallback(() => {
     acceptInvitation({
@@ -71,9 +68,15 @@ export const Main: FC = () => {
     });
   }, [acceptInvitation, guest]);
 
-  const handleChange = (panel: string) => (e: React.SyntheticEvent, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : '');
-  };
+  const handleCollapse = useCallback(() => {
+    setCollapsed(false);
+  }, []);
+
+  const handleOpen = useCallback(() => {
+    if (!collapsed) {
+      setCollapsed(true);
+    }
+  }, [collapsed]);
 
   return (
     <Container
@@ -87,58 +90,52 @@ export const Main: FC = () => {
             flexDirection="column"
             justifyContent="flex-end"
           >
-            <Accordion
-              expanded={expanded === 'video'}
-              onChange={handleChange('video')}
-              disableGutters
+            <Box
+              height="100vh"
+              width="100%"
+              bgcolor="common.invitationGrey"
+              position="relative"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              textAlign="center"
+              padding={2}
+              onClick={handleCollapse}
             >
-              <AccordionSummary
-                aria-controls="videobh-content"
-                id="videobh-header"
+              <Video
+                accept={guest.accept}
+                onAccept={handleAccept}
               />
-              <AccordionDetails>
-                <Typography>
-                  Здесь будет видео
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion
-              expanded={expanded === 'invitation'}
-              onChange={handleChange('invitation')}
-              disableGutters
-              type="invitation"
+            </Box>
+            <Collapse
+              orientation="vertical"
+              in={collapsed}
+              collapsedSize={60}
+              sx={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                width: '100%',
+              }}
             >
-              <AccordionSummary
-                aria-controls="invitationbh-content"
-                id="invitationbh-header"
-              />
-              <AccordionDetails>
-                <Typography variant="h3">{guest?.name}</Typography>
-                <Typography dangerouslySetInnerHTML={{ __html: guest?.invitation as string }} />
-                <Box
-                  height="150px"
-                >
-                  <ImageStyled src={palette} alt="palette" />
-                </Box>
-                {successMessage && <p>{successMessage}</p>}
-                {guest?.accept
-                  ? (
-                    <Typography>Вы подвердили приглашение</Typography>
-                  )
-                  : (
-                    <>
-                      <Typography variant="caption">Просим подтвердить приглашение, нажатием на кнопку:</Typography>
-                      <Button
-                        onClick={handleAccept}
-                        variant="outlined"
-                      >
-                        Подвердить приглашение
-                      </Button>
-                      <Typography variant="caption">В обратном случае, сообщите, пожалуйста, нам до 10.05.2022</Typography>
-                    </>
-                  )}
-              </AccordionDetails>
-            </Accordion>
+              <Box
+                height="90vh"
+                bgcolor="common.invitationPink"
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                textAlign="center"
+                padding={2}
+                onClick={handleOpen}
+              >
+                <Invitation
+                  name={guest.name}
+                  invitation={guest.invitation}
+                />
+              </Box>
+            </Collapse>
           </Box>
         )}
       {(error || isLoading) && (
@@ -147,6 +144,7 @@ export const Main: FC = () => {
           height="100vh"
           flexDirection="column"
           justifyContent="center"
+          alignItems="center"
           textAlign="center"
         >
           {error && <Typography variant="h4">Ой, что-то пошло не так</Typography>}

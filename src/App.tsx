@@ -5,6 +5,7 @@ import {
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { Main } from './pages';
+import { getGlobalStyles } from './utils';
 
 let theme = createTheme({
   palette: {
@@ -14,6 +15,14 @@ let theme = createTheme({
       invitationGrey: '#d4ddde',
       invitationBlue: '#6195a3',
       invitationGreen: '#2f5a5b',
+    },
+  },
+  typography: {
+    fontFamily: 'SourceSansProRegular, sans-serif',
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: getGlobalStyles(),
     },
   },
 });

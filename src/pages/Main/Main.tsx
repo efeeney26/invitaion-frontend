@@ -1,7 +1,6 @@
 import React, {
   FC, useCallback, useEffect, useMemo, useState,
 } from 'react';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -79,9 +78,7 @@ export const Main: FC = () => {
   }, [collapsed]);
 
   return (
-    <Container
-      disableGutters
-    >
+    <>
       {guest?.name
         && (
           <Box
@@ -91,7 +88,7 @@ export const Main: FC = () => {
             justifyContent="flex-end"
           >
             <Box
-              height="100vh"
+              height="100%"
               width="100%"
               bgcolor="common.invitationGrey"
               position="relative"
@@ -111,20 +108,19 @@ export const Main: FC = () => {
             <Collapse
               orientation="vertical"
               in={collapsed}
-              collapsedSize={60}
+              collapsedSize={40}
               sx={{
                 position: 'absolute',
-                bottom: 0,
-                left: 0,
                 width: '100%',
               }}
             >
               <Box
                 height="90vh"
+                width="100%"
                 bgcolor="common.invitationPink"
                 display="flex"
                 flexDirection="column"
-                justifyContent="center"
+                justifyContent="space-around"
                 alignItems="center"
                 textAlign="center"
                 padding={2}
@@ -132,7 +128,7 @@ export const Main: FC = () => {
               >
                 <Invitation
                   name={guest.name}
-                  invitation={guest.invitation}
+                  invitation={guest?.invitation}
                 />
               </Box>
             </Collapse>
@@ -151,7 +147,7 @@ export const Main: FC = () => {
           {isLoading && <CircularProgress />}
         </Box>
       )}
-    </Container>
+    </>
   );
 };
 

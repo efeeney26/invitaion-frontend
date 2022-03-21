@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import ReactPlayer from 'react-player/lazy';
 
 import { ImageStyled, Divider } from './Invitation.style';
 import { palette } from '../../../../assets/images';
@@ -19,6 +20,18 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
       )
       : (
         <>
+          <Box
+            mt={1}
+            mb={1}
+            width="100%"
+            height="16rem"
+          >
+            <ReactPlayer
+              width="100%"
+              height="100%"
+              url=""
+            />
+          </Box>
           <Divider />
           <Box
             mt={1}

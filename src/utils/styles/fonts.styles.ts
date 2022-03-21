@@ -11,6 +11,8 @@ import SourceSansProRegular from '../../assets/fonts/SourceSansPro-Regular.ttf';
 import SourceSansProSemiBold from '../../assets/fonts/SourceSansPro-SemiBold.ttf';
 import SourceSansProSemiBoldItalic from '../../assets/fonts/SourceSansPro-SemiBoldItalic.ttf';
 import HelloJanuary from '../../assets/fonts/HelloJanuary.otf';
+import TenorSansRegular from '../../assets/fonts/TenorSans-Regular.ttf';
+import AnastasiaScriptRegular from '../../assets/fonts/AnastasiaScript-Regular.ttf';
 
 const fontsStyles = `
   @font-face {
@@ -103,7 +105,20 @@ const fontsStyles = `
     font-weight: normal;
     font-style: normal;
   }
- 
+  
+  @font-face {
+    font-family: 'TenorSansRegular';
+    src: url(${TenorSansRegular}) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'AnastasiaScriptRegular';
+    src: url(${AnastasiaScriptRegular}) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 `;
 
 export default fontsStyles;

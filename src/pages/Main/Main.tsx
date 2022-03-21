@@ -4,15 +4,13 @@ import React, {
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
-import Collapse from '@mui/material/Collapse';
 
-import { Invitation, Video } from './components';
+import { Invitation } from './components';
 import apiClient from '../../services';
 import { IGuest } from '../../types';
+import { Button } from './Main.style';
 
 export const Main: FC = () => {
-  const [collapsed, setCollapsed] = useState(true);
-
   const [isLoading, setLoading] = useState(false);
   const [guest, setGuest] = useState<IGuest | null>(null);
   const [error, setError] = useState(false);
@@ -67,16 +65,6 @@ export const Main: FC = () => {
     });
   }, [acceptInvitation, guest]);
 
-  const handleCollapse = useCallback(() => {
-    setCollapsed(false);
-  }, []);
-
-  const handleOpen = useCallback(() => {
-    if (!collapsed) {
-      setCollapsed(true);
-    }
-  }, [collapsed]);
-
   return (
     <>
       {guest?.name
@@ -85,53 +73,80 @@ export const Main: FC = () => {
             display="flex"
             height="100vh"
             flexDirection="column"
-            justifyContent="flex-end"
+            alignItems="center"
+            justifyContent="space-between"
+            bgcolor="common.invitationGreyLight"
+            padding="40px 40px 10px 40px"
           >
             <Box
-              height="100%"
+              textAlign="center"
               width="100%"
-              bgcolor="common.invitationGrey"
-              position="relative"
+            >
+              <Typography
+                variant="body1"
+                color="common.invitationGold"
+                fontFamily="TenorSansRegular, sans-serif"
+              >
+                {(guest.name).toUpperCase()}
+              </Typography>
+              <Typography
+                variant="body1"
+                color="common.invitationGold"
+                fontFamily="TenorSansRegular, sans-serif"
+              >
+                РАЗДЕЛИТЕ С НАМИ
+              </Typography>
+              <Typography
+                variant="body1"
+                color="common.invitationGold"
+                fontFamily="TenorSansRegular, sans-serif"
+              >
+                РОЖДЕНИЕ НАШЕЙ СЕМЬИ
+              </Typography>
+            </Box>
+            <Box
               display="flex"
               flexDirection="column"
-              justifyContent="center"
               alignItems="center"
-              textAlign="center"
-              padding={2}
-              onClick={handleCollapse}
-            >
-              <Video
-                accept={guest.accept}
-                onAccept={handleAccept}
-              />
-            </Box>
-            <Collapse
-              orientation="vertical"
-              in={collapsed}
-              collapsedSize={40}
-              sx={{
-                position: 'absolute',
-                width: '100%',
-              }}
+              justifyContent="flex-end"
+              width="100%"
+              flexGrow={1}
             >
               <Box
-                height="90vh"
                 width="100%"
-                bgcolor="common.invitationPink"
-                display="flex"
-                flexDirection="column"
-                justifyContent="space-around"
-                alignItems="center"
+                bgcolor="common.invitationPinkLight"
                 textAlign="center"
-                padding={2}
-                onClick={handleOpen}
+                padding="120px 30px 5px 30px"
+                mb={3}
               >
                 <Invitation
-                  name={guest.name}
                   invitation={guest?.invitation}
                 />
               </Box>
-            </Collapse>
+              <Button
+                onClick={handleAccept}
+                variant="outlined"
+                sx={{
+                  marginBottom: '10px',
+                }}
+              >
+                Подвердить присутствие
+              </Button>
+              <Typography
+                variant="caption"
+                color="common.invitationGold"
+                fontFamily="TenorSansRegular, sans-serif"
+              >
+                В ОБРАТНОМ СЛУЧАЕ, СООБЩИТЕ НАМ ДО
+              </Typography>
+              <Typography
+                variant="caption"
+                color="common.invitationGold"
+                fontFamily="TenorSansRegular, sans-serif"
+              >
+                10.05.2022 ЛЮБЫМ УДОБНЫМ СПОСОБОМ
+              </Typography>
+            </Box>
           </Box>
         )}
       {(error || isLoading) && (

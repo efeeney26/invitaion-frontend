@@ -11,8 +11,11 @@ let theme = createTheme({
   palette: {
     common: {
       invitationPink: '#EFBFBF',
+      invitationPinkLight: '#faf6f2',
       invitationRed: '#c86a53',
       invitationGrey: '#d4ddde',
+      invitationGreyLight: '#d3d9db',
+      invitationGold: '#ab7836',
       invitationBlue: '#6195a3',
       invitationGreen: '#2f5a5b',
     },

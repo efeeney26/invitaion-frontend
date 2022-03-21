@@ -123,29 +123,42 @@ export const Main: FC = () => {
                   invitation={guest?.invitation}
                 />
               </Box>
-              <Button
-                onClick={handleAccept}
-                variant="outlined"
-                sx={{
-                  marginBottom: '10px',
-                }}
-              >
-                Подвердить присутствие
-              </Button>
-              <Typography
-                variant="caption"
-                color="common.invitationGold"
-                fontFamily="TenorSansRegular, sans-serif"
-              >
-                В ОБРАТНОМ СЛУЧАЕ, СООБЩИТЕ НАМ ДО
-              </Typography>
-              <Typography
-                variant="caption"
-                color="common.invitationGold"
-                fontFamily="TenorSansRegular, sans-serif"
-              >
-                10.05.2022 ЛЮБЫМ УДОБНЫМ СПОСОБОМ
-              </Typography>
+              {!guest.accept
+                ? (
+                  <>
+                    <Button
+                      onClick={handleAccept}
+                      variant="outlined"
+                      sx={{
+                        marginBottom: '10px',
+                      }}
+                    >
+                      Подвердить присутствие
+                    </Button>
+                    <Typography
+                      variant="caption"
+                      color="common.invitationGold"
+                      fontFamily="TenorSansRegular, sans-serif"
+                    >
+                      В ОБРАТНОМ СЛУЧАЕ, СООБЩИТЕ НАМ ДО
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      color="common.invitationGold"
+                      fontFamily="TenorSansRegular, sans-serif"
+                    >
+                      10.05.2022 ЛЮБЫМ УДОБНЫМ СПОСОБОМ
+                    </Typography>
+                  </>
+                ) : (
+                  <Typography
+                    variant="caption"
+                    color="common.invitationGold"
+                    fontFamily="TenorSansRegular, sans-serif"
+                  >
+                    ВЫ ПОДТВЕРДИЛИ ПРИГЛАШЕНИЕ
+                  </Typography>
+                )}
             </Box>
           </Box>
         )}

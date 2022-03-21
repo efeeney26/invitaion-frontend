@@ -13,12 +13,13 @@ interface InvitationProps {
 export const Invitation: FC<InvitationProps> = ({ invitation }) => (
   <>
     <Typography
-      variant="h4"
+      variant="h1"
       gutterBottom
-      fontFamily="AnastasiaScriptRegular, sans-serif"
+      textAlign="center"
+      fontFamily="HelloJanuary, sans-serif"
       color="common.invitationGold"
     >
-      D & N
+      Д & Н
     </Typography>
     {invitation
       ? (
@@ -40,9 +41,29 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
             mt={1}
             mb={1}
           >
-            <Typography fontFamily="TenorSansRegular, sans-serif" variant="subtitle2" gutterBottom>МЕСТО: Академия Кавказкой Кухни</Typography>
-            <Typography fontFamily="TenorSansRegular, sans-serif" variant="subtitle2" gutterBottom>АДРЕС: слобода Талица, ул.Янтарная Слобода, 14в, зал Эльбрус</Typography>
-            <Typography fontFamily="TenorSansRegular, sans-serif" variant="subtitle2" gutterBottom>СБОР ГОСТЕЙ: 16:00</Typography>
+            <Typography
+              fontFamily="TenorSansRegular, sans-serif"
+              variant="caption"
+              gutterBottom
+              paragraph
+            >
+              МЕСТО: Академия Кавказкой Кухни
+            </Typography>
+            <Typography
+              fontFamily="TenorSansRegular, sans-serif"
+              variant="caption"
+              gutterBottom
+              paragraph
+            >
+              АДРЕС: слобода Талица, ул.Янтарная Слобода, 14в, зал Эльбрус
+            </Typography>
+            <Typography
+              fontFamily="TenorSansRegular, sans-serif"
+              variant="caption"
+              paragraph
+            >
+              СБОР ГОСТЕЙ: 16:00
+            </Typography>
           </Box>
           <Divider color="common.invitationGold" />
         </>

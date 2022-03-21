@@ -71,10 +71,10 @@ export const Main: FC = () => {
         && (
           <Box
             display="flex"
-            height="100vh"
+            minHeight="100vh"
             flexDirection="column"
             alignItems="center"
-            justifyContent="space-between"
+            justifyContent="center"
             bgcolor="common.invitationGreyLight"
             padding="40px 40px 10px 40px"
           >
@@ -95,12 +95,8 @@ export const Main: FC = () => {
                 fontFamily="TenorSansRegular, sans-serif"
               >
                 РАЗДЕЛИТЕ С НАМИ
-              </Typography>
-              <Typography
-                variant="body1"
-                color="common.invitationGold"
-                fontFamily="TenorSansRegular, sans-serif"
-              >
+                {' '}
+                <br />
                 РОЖДЕНИЕ НАШЕЙ СЕМЬИ
               </Typography>
             </Box>
@@ -116,7 +112,7 @@ export const Main: FC = () => {
                 width="100%"
                 bgcolor="common.invitationPinkLight"
                 textAlign="center"
-                padding="120px 30px 5px 30px"
+                padding="30px 30px 5px 30px"
                 mb={3}
               >
                 <Invitation
@@ -139,14 +135,10 @@ export const Main: FC = () => {
                       variant="caption"
                       color="common.invitationGold"
                       fontFamily="TenorSansRegular, sans-serif"
+                      textAlign="center"
                     >
                       В ОБРАТНОМ СЛУЧАЕ, СООБЩИТЕ НАМ ДО
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      color="common.invitationGold"
-                      fontFamily="TenorSansRegular, sans-serif"
-                    >
+                      <br />
                       10.05.2022 ЛЮБЫМ УДОБНЫМ СПОСОБОМ
                     </Typography>
                   </>

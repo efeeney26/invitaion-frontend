@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 
-import { ImageStyled } from './Invitation.style';
+import { ImageStyled, Divider } from './Invitation.style';
 import { palette } from '../../../../assets/images';
 
 interface InvitationProps {
@@ -12,15 +11,6 @@ interface InvitationProps {
 
 export const Invitation: FC<InvitationProps> = ({ invitation }) => (
   <>
-    <Typography
-      variant="h1"
-      gutterBottom
-      textAlign="center"
-      fontFamily="HelloJanuary, sans-serif"
-      color="common.invitationGold"
-    >
-      Д & Н
-    </Typography>
     {invitation
       ? (
         <Typography
@@ -29,14 +19,7 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
       )
       : (
         <>
-          <Box
-            mt={1}
-            mb={1}
-          >
-            <Typography fontFamily="TenorSansRegular, sans-serif" variant="subtitle1">20.05.2022 МЫ СТАНЕМ</Typography>
-            <Typography fontFamily="TenorSansRegular, sans-serif" variant="subtitle1" gutterBottom>МУЖЕМ И ЖЕНОЙ</Typography>
-          </Box>
-          <Divider color="common.invitationGold" />
+          <Divider />
           <Box
             mt={1}
             mb={1}
@@ -65,7 +48,7 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
               СБОР ГОСТЕЙ: 16:00
             </Typography>
           </Box>
-          <Divider color="common.invitationGold" />
+          <Divider />
         </>
       )}
     <Box

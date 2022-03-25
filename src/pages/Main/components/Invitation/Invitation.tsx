@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ReactPlayer from 'react-player/lazy';
 
-import { ImageStyled, Divider } from './Invitation.style';
+import { ImageStyled, Divider, BoxImageStyled } from './Invitation.style';
 import { palette } from '../../../../assets/images';
 
 interface InvitationProps {
@@ -65,7 +65,6 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
         </>
       )}
     <Box
-      height="80px"
       mt={1}
     >
       <Typography
@@ -74,10 +73,12 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
       >
         РЕКОМЕНДОВАННЫЕ ОТТЕНКИ:
       </Typography>
-      <ImageStyled
-        src={palette}
-        alt="palette"
-      />
+      <BoxImageStyled>
+        <ImageStyled
+          src={palette}
+          alt="palette"
+        />
+      </BoxImageStyled>
     </Box>
   </>
 );

@@ -21,7 +21,7 @@ let theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'SourceSansProRegular, sans-serif',
+    fontFamily: 'TenorSansRegular, sans-serif',
   },
   components: {
     MuiCssBaseline: {

@@ -38,7 +38,6 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
             mb={1}
           >
             <Typography
-              fontFamily="TenorSansRegular, sans-serif"
               variant="caption"
               gutterBottom
               paragraph
@@ -46,7 +45,6 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
               МЕСТО: Академия Кавказкой Кухни
             </Typography>
             <Typography
-              fontFamily="TenorSansRegular, sans-serif"
               variant="caption"
               gutterBottom
               paragraph
@@ -54,7 +52,6 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
               АДРЕС: слобода Талица, ул.Янтарная Слобода, 14в, зал Эльбрус
             </Typography>
             <Typography
-              fontFamily="TenorSansRegular, sans-serif"
               variant="caption"
               paragraph
             >
@@ -68,7 +65,6 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
       mt={1}
     >
       <Typography
-        fontFamily="TenorSansRegular, sans-serif"
         variant="caption"
       >
         РЕКОМЕНДОВАННЫЕ ОТТЕНКИ:

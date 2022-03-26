@@ -85,14 +85,12 @@ export const Main: FC = () => {
               <Typography
                 variant="body1"
                 color="common.invitationGold"
-                fontFamily="TenorSansRegular, sans-serif"
               >
                 {(guest.name).toUpperCase()}
               </Typography>
               <Typography
                 variant="body1"
                 color="common.invitationGold"
-                fontFamily="TenorSansRegular, sans-serif"
               >
                 РАЗДЕЛИТЕ С НАМИ
                 {' '}
@@ -123,7 +121,6 @@ export const Main: FC = () => {
                 ? (
                   <>
                     <Button
-                      onClick={handleAccept}
                       variant="outlined"
                       sx={{
                         marginBottom: '10px',
@@ -134,7 +131,6 @@ export const Main: FC = () => {
                     <Typography
                       variant="caption"
                       color="common.invitationGold"
-                      fontFamily="TenorSansRegular, sans-serif"
                       textAlign="center"
                     >
                       В ОБРАТНОМ СЛУЧАЕ, СООБЩИТЕ НАМ ДО
@@ -146,7 +142,6 @@ export const Main: FC = () => {
                   <Typography
                     variant="caption"
                     color="common.invitationGold"
-                    fontFamily="TenorSansRegular, sans-serif"
                   >
                     ВЫ ПОДТВЕРДИЛИ ПРИГЛАШЕНИЕ
                   </Typography>

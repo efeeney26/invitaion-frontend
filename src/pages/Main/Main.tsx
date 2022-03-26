@@ -121,6 +121,7 @@ export const Main: FC = () => {
                 ? (
                   <>
                     <Button
+                      onClick={handleAccept}
                       variant="outlined"
                       sx={{
                         marginBottom: '10px',

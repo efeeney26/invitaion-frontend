@@ -13,7 +13,7 @@ const getGlobalStyles = () => `
    }
 
    body {
-     font-family: 'SourceSansProRegular', sans-serif;
+     font-family: 'TenorSansRegular', sans-serif;
      min-height: 100%;
    }
 

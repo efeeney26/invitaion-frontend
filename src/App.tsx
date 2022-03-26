@@ -1,13 +1,13 @@
 import React, { FC, StrictMode } from 'react';
 import {
-  ThemeProvider, createTheme, responsiveFontSizes,
+  ThemeProvider, createTheme,
 } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { Main } from './pages';
-import { getGlobalStyles } from './utils';
+import { getGlobalStyles, responsiveFontsSizes } from './utils';
 
-let theme = createTheme({
+const theme = createTheme({
   palette: {
     common: {
       invitationPink: '#EFBFBF',
@@ -29,7 +29,8 @@ let theme = createTheme({
     },
   },
 });
-theme = responsiveFontSizes(theme);
+
+responsiveFontsSizes(theme);
 
 const App: FC = () => (
   <StrictMode>

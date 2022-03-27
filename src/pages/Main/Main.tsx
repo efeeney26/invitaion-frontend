@@ -116,7 +116,7 @@ export const Main: FC = () => {
                         marginBottom: '10px',
                       }}
                     >
-                      Подвердить приглашение
+                      Подтвердить приглашение
                     </ButtonStyled>
                     <Typography
                       variant="caption"

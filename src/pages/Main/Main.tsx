@@ -97,7 +97,7 @@ export const Main: FC = () => {
               display="flex"
               flexDirection="column"
               alignItems="center"
-              justifyContent="flex-end"
+              justifyContent="flex-start"
               width="100%"
               flexGrow={1}
             >

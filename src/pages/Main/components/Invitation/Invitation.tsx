@@ -69,7 +69,7 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
     >
       <Typography
         sx={{
-          fontSize: '0.6rem',
+          fontSize: '0.5rem',
         }}
       >
         РЕКОМЕНДОВАННЫЕ ОТТЕНКИ:

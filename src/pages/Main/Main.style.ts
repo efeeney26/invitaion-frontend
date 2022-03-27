@@ -21,7 +21,7 @@ export const InvitationBoxStyled = styled(MUIBox)(({ theme }) => ({
   background: theme.palette.common.invitationPinkLight,
   textAlign: 'center',
   padding: '30px 30px 0 30px',
-  marginBottom: theme.spacing(3),
+  margin: `${theme.spacing(3)} 0`,
   [theme.breakpoints.up('md')]: {
     padding: '30px 120px 0 120px',
   },

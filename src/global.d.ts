@@ -13,7 +13,12 @@ declare module '*.ttf' {
   export default ttf;
 }
 
-declare module '*.otf' {
-  const otf: string;
-  export default otf;
+declare module '*.mov' {
+  const mov: string;
+  export default mov;
+}
+
+declare module '*.mp4' {
+  const mp4: string;
+  export default mp4;
 }

@@ -3,7 +3,7 @@ import MuiButton from '@mui/material/Button';
 import MUIContainer from '@mui/material/Container';
 import MUIBox from '@mui/material/Box';
 
-export const MainContainer = styled(MUIContainer)(({ theme }) => ({
+export const MainContainerStyled = styled(MUIContainer)(({ theme }) => ({
   display: 'flex',
   minHeight: '100vh',
   flexDirection: 'column',
@@ -16,18 +16,18 @@ export const MainContainer = styled(MUIContainer)(({ theme }) => ({
   },
 }));
 
-export const InvitationBox = styled(MUIBox)(({ theme }) => ({
+export const InvitationBoxStyled = styled(MUIBox)(({ theme }) => ({
   width: '100%',
   background: theme.palette.common.invitationPinkLight,
   textAlign: 'center',
-  padding: '30px 30px 5px 30px',
+  padding: '30px 30px 0 30px',
   marginBottom: theme.spacing(3),
   [theme.breakpoints.up('md')]: {
-    padding: '30px 120px 5px 120px',
+    padding: '30px 120px 0 120px',
   },
 }));
 
-export const Button = styled(MuiButton)(({ theme }) => ({
+export const ButtonStyled = styled(MuiButton)(({ theme }) => ({
   borderColor: theme.palette.common.invitationGold,
   color: theme.palette.common.invitationGold,
   borderRadius: '10px',

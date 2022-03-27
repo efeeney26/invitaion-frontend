@@ -3,8 +3,11 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ReactPlayer from 'react-player/lazy';
 
-import { ImageStyled, Divider, BoxImageStyled } from './Invitation.style';
+import {
+  ImageStyled, Divider, ImageBoxStyled, VideoBoxStyled,
+} from './Invitation.style';
 import { palette } from '../../../../assets/images';
+import { invitation as videoInvitation } from '../../../../assets/videos';
 
 interface InvitationProps {
   invitation?: string
@@ -20,18 +23,15 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
       )
       : (
         <>
-          <Box
-            mt={1}
-            mb={1}
-            width="100%"
-            height="16rem"
-          >
+          <VideoBoxStyled>
             <ReactPlayer
               width="100%"
               height="100%"
-              url=""
+              url={videoInvitation}
+              controls
+              playsinline
             />
-          </Box>
+          </VideoBoxStyled>
           <Divider />
           <Box
             mt={1}
@@ -53,7 +53,6 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
             </Typography>
             <Typography
               variant="caption"
-              paragraph
             >
               СБОР ГОСТЕЙ: 16:00
             </Typography>
@@ -62,19 +61,25 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
         </>
       )}
     <Box
-      mt={1}
+      mt={2}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
     >
       <Typography
-        variant="caption"
+        sx={{
+          fontSize: '0.6rem',
+        }}
       >
         РЕКОМЕНДОВАННЫЕ ОТТЕНКИ:
       </Typography>
-      <BoxImageStyled>
+      <ImageBoxStyled>
         <ImageStyled
           src={palette}
           alt="palette"
         />
-      </BoxImageStyled>
+      </ImageBoxStyled>
     </Box>
   </>
 );

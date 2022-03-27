@@ -4,12 +4,12 @@ import MUIBox from '@mui/material/Box';
 
 export const BoxImageStyled = styled(MUIBox)(({ theme }) => (
   {
-    height: '5rem',
+    height: '6rem',
     [theme.breakpoints.up('sm')]: {
-      height: '15rem',
+      height: '16rem',
     },
     [theme.breakpoints.up('md')]: {
-      height: '25rem',
+      height: '20rem',
     },
   }
 ));

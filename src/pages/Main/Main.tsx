@@ -8,7 +8,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { Invitation } from './components';
 import apiClient from '../../services';
 import { IGuest } from '../../types';
-import { Button } from './Main.style';
+import { Button, MainContainer, InvitationBox } from './Main.style';
 
 export const Main: FC = () => {
   const [isLoading, setLoading] = useState(false);
@@ -69,14 +69,9 @@ export const Main: FC = () => {
     <>
       {guest?.name
         && (
-          <Box
-            display="flex"
-            minHeight="100vh"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            bgcolor="common.invitationGreyLight"
-            padding="40px 40px 10px 40px"
+          <MainContainer
+            maxWidth={false}
+            disableGutters
           >
             <Box
               textAlign="center"
@@ -106,17 +101,11 @@ export const Main: FC = () => {
               width="100%"
               flexGrow={1}
             >
-              <Box
-                width="100%"
-                bgcolor="common.invitationPinkLight"
-                textAlign="center"
-                padding="30px 30px 5px 30px"
-                mb={3}
-              >
+              <InvitationBox>
                 <Invitation
                   invitation={guest?.invitation}
                 />
-              </Box>
+              </InvitationBox>
               {!guest.accept
                 ? (
                   <>
@@ -148,7 +137,7 @@ export const Main: FC = () => {
                   </Typography>
                 )}
             </Box>
-          </Box>
+          </MainContainer>
         )}
       {(error || isLoading) && (
         <Box

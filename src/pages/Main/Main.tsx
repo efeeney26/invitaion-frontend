@@ -84,13 +84,14 @@ export const Main: FC = () => {
                 {(guest.name).toUpperCase()}
               </Typography>
               <Typography
-                variant="body1"
+                variant="body2"
                 color="common.invitationGold"
               >
-                РАЗДЕЛИТЕ С НАМИ
-                {' '}
                 <br />
-                РОЖДЕНИЕ НАШЕЙ СЕМЬИ
+                {'Приглашаем разделить с нами'.toUpperCase()}
+                <br />
+                <br />
+                {'рождение нашей семьи!'.toUpperCase()}
               </Typography>
             </Box>
             <Box
@@ -108,30 +109,19 @@ export const Main: FC = () => {
               </InvitationBoxStyled>
               {!guest.accept
                 ? (
-                  <>
-                    <ButtonStyled
-                      onClick={handleAccept}
-                      variant="outlined"
-                      sx={{
-                        marginBottom: '10px',
-                      }}
-                    >
-                      Подтвердить приглашение
-                    </ButtonStyled>
-                    <Typography
-                      variant="caption"
-                      color="common.invitationGold"
-                      textAlign="center"
-                    >
-                      В ОБРАТНОМ СЛУЧАЕ, СООБЩИТЕ НАМ ДО
-                      <br />
-                      10.05.2022 ЛЮБЫМ УДОБНЫМ СПОСОБОМ
-                    </Typography>
-                  </>
+                  <ButtonStyled
+                    onClick={handleAccept}
+                    variant="outlined"
+                  >
+                    Подтвердить приглашение
+                  </ButtonStyled>
                 ) : (
                   <Typography
                     variant="caption"
                     color="common.invitationGold"
+                    sx={{
+                      fontSize: '0.7rem',
+                    }}
                   >
                     ВЫ ПОДТВЕРДИЛИ ПРИГЛАШЕНИЕ
                   </Typography>

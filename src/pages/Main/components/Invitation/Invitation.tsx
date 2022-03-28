@@ -54,7 +54,7 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
             <Typography
               variant="caption"
             >
-              СБОР ГОСТЕЙ: 16:00
+              СБОР ГОСТЕЙ: 20.05.2022 в 16:00
             </Typography>
           </Box>
           <Divider />
@@ -72,7 +72,7 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
           fontSize: '0.5rem',
         }}
       >
-        РЕКОМЕНДОВАННЫЕ ОТТЕНКИ:
+        ЦВЕТОВАЯ ГАММА ВЕЧЕРА:
       </Typography>
       <ImageBoxStyled>
         <ImageStyled

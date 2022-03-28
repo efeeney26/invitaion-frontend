@@ -5,19 +5,17 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import { Invitation } from './components';
+import { Invitation, Accept } from './components';
 import apiClient from '../../services';
 import { IGuest } from '../../types';
-import { ButtonStyled, MainContainerStyled, InvitationBoxStyled } from './Main.style';
+import { MainContainerStyled, InvitationBoxStyled } from './Main.style';
 
 export const Main: FC = () => {
   const [isLoading, setLoading] = useState(false);
   const [guest, setGuest] = useState<IGuest | null>(null);
   const [error, setError] = useState(false);
 
-  const [successMessage, setSuccessMessage] = useState('');
-
-  const urlParams = useMemo(() => new URLSearchParams(window.location.search), []);
+  const guestId = useMemo(() => (new URLSearchParams(window.location.search))?.get('id'), []);
 
   const fetchGuest = useCallback(async (id: string) => {
     try {
@@ -37,10 +35,7 @@ export const Main: FC = () => {
     try {
       setLoading(true);
       if (acceptedGuest) {
-        const message = (await apiClient.updateGuest(acceptedGuest))?.data?.message;
-        if (message) {
-          setSuccessMessage(message);
-        }
+        await apiClient.updateGuest(acceptedGuest);
       }
     } catch (e) {
       setError(true);
@@ -50,11 +45,10 @@ export const Main: FC = () => {
   }, []);
 
   useEffect(() => {
-    const guestId = urlParams.get('id');
     if (guestId) {
       fetchGuest(guestId);
     }
-  }, [fetchGuest, urlParams, successMessage]);
+  }, [fetchGuest, guestId]);
 
   const handleAccept = useCallback(() => {
     acceptInvitation({
@@ -64,6 +58,12 @@ export const Main: FC = () => {
       },
     });
   }, [acceptInvitation, guest]);
+
+  const handleCloseSnackbar = useCallback(() => {
+    if (guestId) {
+      fetchGuest(guestId);
+    }
+  }, [fetchGuest, guestId]);
 
   return (
     <>
@@ -109,12 +109,10 @@ export const Main: FC = () => {
               </InvitationBoxStyled>
               {!guest.accept
                 ? (
-                  <ButtonStyled
-                    onClick={handleAccept}
-                    variant="outlined"
-                  >
-                    Подтвердить приглашение
-                  </ButtonStyled>
+                  <Accept
+                    onAccept={handleAccept}
+                    onCloseSnackbar={handleCloseSnackbar}
+                  />
                 ) : (
                   <Typography
                     variant="caption"

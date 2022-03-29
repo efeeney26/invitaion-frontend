@@ -35,7 +35,7 @@ export const Accept: FC<AcceptProps> = ({ onAccept, onCloseSnackbar }) => {
           </ButtonStyled>
         )}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        message="Мы любим цветы, но так как в Кирове ненадолго,
+        message="Мы любим цветы, но после свадьбы будем в Кирове недолго, поэтому
         предлагаем заменить букет на вино, книгу или презент на Ваше усмотрение"
       />
     </>

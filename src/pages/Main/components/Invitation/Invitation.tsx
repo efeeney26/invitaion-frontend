@@ -42,19 +42,12 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
               gutterBottom
               paragraph
             >
-              МЕСТО: Академия Кавказкой Кухни
-            </Typography>
-            <Typography
-              variant="caption"
-              gutterBottom
-              paragraph
-            >
-              АДРЕС: слобода Талица, ул.Янтарная Слобода, 14в, зал Эльбрус
+              Будем ждать вас 20.05.2022 в 16:00 в Академии Кавказкой Кухни
             </Typography>
             <Typography
               variant="caption"
             >
-              СБОР ГОСТЕЙ: 20.05.2022 в 16:00
+              Слобода Талица, ул.Янтарная Слобода, 14в, зал Эльбрус
             </Typography>
           </Box>
           <Divider />

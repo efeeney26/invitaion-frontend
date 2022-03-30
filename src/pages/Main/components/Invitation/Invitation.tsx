@@ -42,7 +42,9 @@ export const Invitation: FC<InvitationProps> = ({ invitation }) => (
               gutterBottom
               paragraph
             >
-              Будем ждать вас 20.05.2022 в 16:00 в Академии Кавказкой Кухни
+              Будем ждать вас 20.05.2022 в 16:00
+              <br />
+              в Академии Кавказкой Кухни
             </Typography>
             <Typography
               variant="caption"

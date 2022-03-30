@@ -10,7 +10,7 @@ export const MainContainerStyled = styled(MUIContainer)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   background: theme.palette.common.invitationGreyLight,
-  padding: '40px 40px 10px 40px',
+  padding: '40px 40px 20px 40px',
   [theme.breakpoints.up('md')]: {
     padding: '40px 160px 10px 160px',
   },
